@@ -1,0 +1,25 @@
+.all{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background-color: grey;
+    height:60px;
+
+}
+.navs ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+    display: table;
+    table-layout:fixed;
+}
+li{
+    padding: 10px;
+    display: table-cell;
+    width: 11.1111111%;
+    width: calc(100% / 9);
+}
+li:hover{
+    background-color: white;
+}

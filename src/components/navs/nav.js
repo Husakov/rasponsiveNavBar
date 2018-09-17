@@ -1,4 +1,7 @@
-import React from 'react';
+import React,{Component} from 'react';
+import './nav.css';
+import DropDown from '../dropdownbutton/dropdown'
+
 
 const menuItems = {
     hr: [
@@ -23,23 +26,29 @@ const menuItems = {
     ]
 };
 
-const Navs= props =>(
-  <header className="nav">
-      <nav>
-      <div></div>
-          <div className="nav_items">
-            <ul>{menuItems.en.map((items,index)=>{
-            console.log(items);
-                return(
-                     <li>{items}</li>
-                         );
+
+class Navs extends Component {
+    render() {
+        return (
+            <header className="all">
+                {console.log(this.props)}
+                <nav className="navs">
+                    <div className="nav_items">
+                        <ul>{menuItems.en.map((items, index) => {
+                            console.log(document.body.clientWidth);
+                            return (<fragment>
+                                    {index < this.props.value && <li key={items.toString()}>{items}</li>}
+                                </fragment>
+                            );
                         })}
+                        </ul>
+                    </div>
 
-            </ul>
-          </div>
 
-      </nav>
-  </header>
-);
+                </nav>
+            </header>
+        );
+    }
+}
 
 export default Navs;
