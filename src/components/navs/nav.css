@@ -1,25 +1,36 @@
 .all{
+    margin-top: 50px;
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    background-color: grey;
+
     height:60px;
 
 }
 .navs ul{
+    text-align: center;
+    background-color: white;
     list-style: none;
     margin:0;
     padding:0;
-    display: table;
+    display: flex;
     table-layout:fixed;
 }
 li{
-    padding: 10px;
-    display: table-cell;
-    width: 11.1111111%;
-    min-width: calc(100% / 9);
+    padding: 15px;
+    width: calc(100% / 9);
+    display: inline-block;
 }
-li:hover{
-    background-color: white;
+
+a{
+
+
+    color:darkslategray !important;
+    width:100%;
 }
+
+a:hover{
+    background-color: grey;
+}
+

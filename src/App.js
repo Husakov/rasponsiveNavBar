@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navs from './components/navs/nav';
+import './App.css'
 
 
 
@@ -27,7 +28,7 @@ class App extends Component {
   render() {
       console.log(this.state.contentWidth);
       return (
-                 <div>
+                 <div className="ALL">
                  {this.state.contentWidth>1365 && <Navs value={8}/>}
                  {(this.state.contentWidth>1220)&&(this.state.contentWidth<1365) ? <Navs value={7} /> : ""}
                  {(this.state.contentWidth>1070)&&(this.state.contentWidth<1220) ? <Navs value={6} /> : ""}

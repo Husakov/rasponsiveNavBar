@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import './nav.css';
-import DropDown from '../dropdownbutton/dropdown'
 import {
     Input,
     Dropdown,
@@ -41,16 +40,29 @@ class Navs extends Component {
         menuItems:menuItems.en,
     }
 
-    changeLanguagehr=(a)=>{
 
-        if(a=='1')
-            this.state.menuItems=menuItems.hr;
 
-    }
     changeLanguage=(a)=>{
 
         if(a=='2')
             this.state.menuItems=menuItems.en;
+        if(a=='1')
+            this.state.menuItems=menuItems.hr;
+
+    }
+    functionForToogle=()=>{
+        this.setState({
+            dropdownsOpen: !this.state.dropdownsOpen,
+        });
+        if(this.state.selectedLanguage=='1')
+        this.setState({
+            menuItems:menuItems.en
+        });
+        if(this.state.selectedLanguage=='2')
+            this.setState({
+                menuItems:menuItems.hr
+            });
+
 
     }
     render() {
@@ -63,18 +75,16 @@ class Navs extends Component {
                         <ul>{this.state.menuItems.map((items, index) => {
                             console.log(document.body.clientWidth);
                             return (<fragment>
-                                    {index < this.props.value && <li key={items.toString()}>{items}</li>}
+                                    {index < this.props.value && <li key={items.toString()}><a href="/"><b>{items}</b></a></li>}
                                 </fragment>
                             );
                         })}
-                            {this.props.value<8 && <li>
+                            {this.props.value<8 && <li><a>
                              <Dropdown
 
                             key={3}
                             isOpen={this.state.dropdownsOpen}
-                            toggle={() => this.setState({
-                                dropdownsOpen: !this.state.dropdownsOpen
-                            })}>
+                            toggle={() => this.functionForToogle()}>
                             <DropdownToggle >
                                 ...
                             </DropdownToggle>
@@ -87,17 +97,17 @@ class Navs extends Component {
                                );})}
                             </DropdownMenu>
                         </Dropdown>
-
+                            </a>
                         </li>
                             }
-                            <li>
+                            <li><a>
                                 <Input type="select" value={selectedLanguage}  onChange={e => this.setState({selectedLanguage: e.target.value})}>
                                     <optgroup label="Choose language">
                                         <option value="1" onClick={this.changeLanguage(selectedLanguage)}>English</option>
-                                        <option value="2" onClick={this.changeLanguagehr(selectedLanguage)}>Hrvatski</option>
+                                        <option value="2" onClick={this.changeLanguage(selectedLanguage)}>Hrvatski</option>
                                     </optgroup>
                                 </Input>
-                                {console.log(this.state.menuItems)}
+                            </a>
                             </li>
                         </ul>
                     </div>
