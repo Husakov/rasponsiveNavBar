@@ -40,14 +40,21 @@ class Navs extends Component {
         selectedLanguage: '1',
         menuItems:menuItems.en,
     }
-    changeLanguage=()=>{
 
-        if(this.state.selectedLanguage='2')
+    changeLanguagehr=(a)=>{
+
+        if(a=='1')
             this.state.menuItems=menuItems.hr;
 
-}
+    }
+    changeLanguage=(a)=>{
 
+        if(a=='2')
+            this.state.menuItems=menuItems.en;
+
+    }
     render() {
+
         const selectedLanguage=this.state.selectedLanguage;
         return (
             <header className="all">
@@ -86,10 +93,11 @@ class Navs extends Component {
                             <li>
                                 <Input type="select" value={selectedLanguage}  onChange={e => this.setState({selectedLanguage: e.target.value})}>
                                     <optgroup label="Choose language">
-                                        <option value="1" onClick={this.changeLanguage()}>English</option>
-                                        <option value="2" onClick={this.changeLanguage()}>Hrvatski</option>
+                                        <option value="1" onClick={this.changeLanguage(selectedLanguage)}>English</option>
+                                        <option value="2" onClick={this.changeLanguagehr(selectedLanguage)}>Hrvatski</option>
                                     </optgroup>
                                 </Input>
+                                {console.log(this.state.menuItems)}
                             </li>
                         </ul>
                     </div>
